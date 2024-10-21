@@ -3,8 +3,11 @@ project(gpiod_examples VERSION 0.0.1)
 
 add_compile_options(-Wall)
 
-add_executable(output_simple output_simple.cpp)
-target_link_libraries(output_simple gpiod)
+add_executable(output1_simple output1_simple.cpp)
+target_link_libraries(output1_simple gpiod)
+
+add_executable(output2_simple output2_simple.cpp)
+target_link_libraries(output2_simple gpiod)
 
 add_executable(input_simple input_simple.cpp)
 target_link_libraries(input_simple gpiod)
