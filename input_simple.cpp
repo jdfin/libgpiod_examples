@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
         for (unsigned i = 0; i < 2; i++) {
 
             if (values_old[i] != values_new[i]) {
-                printf("pin %d = %d\n", offsets[i], values_new[i] == GPIOD_LINE_VALUE_ACTIVE ? 1 : 0);
+                printf("pin %u = %d\n", offsets[i], values_new[i] == GPIOD_LINE_VALUE_ACTIVE ? 1 : 0);
                 values_old[i] = values_new[i];
             }
         }

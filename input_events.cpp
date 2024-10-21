@@ -1,5 +1,6 @@
 #include <cassert>
 #include <cstdint>
+#include <inttypes.h>
 #include <errno.h>
 #include <signal.h> // ctrl-c handler
 #include <stdio.h>
@@ -168,10 +169,10 @@ int main(int argc, char *argv[])
             unsigned int pin_val =
                 gpiod_edge_event_get_event_type(event) == GPIOD_EDGE_EVENT_RISING_EDGE ? 1 : 0;
             uint64_t timestamp_ns = gpiod_edge_event_get_timestamp_ns(event);
-            printf("%lu:%lu pin %d = %d @ %llu", global_seqno, line_seqno,
+            printf("%lu:%lu pin %u = %u @ %" PRIu64, global_seqno, line_seqno,
                     pin_num, pin_val, timestamp_ns);
             if (last_ns != 0)
-                printf(" +%llu", timestamp_ns - last_ns);
+                printf(" +%" PRIu64, timestamp_ns - last_ns);
             last_ns = timestamp_ns;
             printf("\n");
         }
